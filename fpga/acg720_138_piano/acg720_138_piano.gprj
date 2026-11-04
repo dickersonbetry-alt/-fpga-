@@ -1,0 +1,32 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW5AT-138B" pn="GW5AT-LV138PG484AC1/I0">gw5at138b-012</Device>
+    <FileList>
+        <File path="src/HEX8/HC595_Driver.v" type="file.verilog" enable="1"/>
+        <File path="src/HEX8/HEX8.v" type="file.verilog" enable="1"/>
+        <File path="src/HEX8/HEX_top.v" type="file.verilog" enable="1"/>
+        <File path="src/bintobcd/adjust.v" type="file.verilog" enable="1"/>
+        <File path="src/bintobcd/bintobcd.v" type="file.verilog" enable="1"/>
+        <File path="src/bintobcd/shift_adjust.v" type="file.verilog" enable="1"/>
+        <File path="src/buzzer.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_pll/gowin_pll.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_pll/gowin_pll_mod.v" type="file.verilog" enable="1"/>
+        <File path="src/gt9147_driver/gt9147_driver.v" type="file.verilog" enable="1"/>
+        <File path="src/gt9147_driver/i2c_bit_shift.v" type="file.verilog" enable="1"/>
+        <File path="src/gt9147_driver/i2c_control.v" type="file.verilog" enable="1"/>
+        <File path="src/gt9147_driver/key_filter.v" type="file.verilog" enable="1"/>
+        <File path="src/ibeep.v" type="file.verilog" enable="1"/>
+        <File path="src/key_process/edge_check.v" type="file.verilog" enable="1"/>
+        <File path="src/key_process/key.v" type="file.verilog" enable="1"/>
+        <File path="src/key_process/key_filters.v" type="file.verilog" enable="1"/>
+        <File path="src/piano.v" type="file.verilog" enable="1"/>
+        <File path="src/piano_ctrl.v" type="file.verilog" enable="1"/>
+        <File path="src/pll_init.v" type="file.verilog" enable="1"/>
+        <File path="src/vga/disp_driver.v" type="file.verilog" enable="1"/>
+        <File path="src/vga/disp_parameter_cfg.v" type="file.verilog" enable="1"/>
+        <File path="src/acg720_138_piano.cst" type="file.cst" enable="1"/>
+    </FileList>
+</Project>

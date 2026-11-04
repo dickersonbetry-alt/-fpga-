@@ -1,0 +1,325 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Standard</Mode>
+    <AoCore index="0" sample_clock="move1/motor0/tick" trig_type="0" storage_depth="128" window_num="1" capture_amount="128" implementation="0" trigger_pos="0" module_name="fpga_top" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
+        <SignalList>
+            <Bus capture_enable="true" name="move1/motor0/u_pid/err[31:0]">
+                <Signal>move1/motor0/u_pid/err[31]</Signal>
+                <Signal>move1/motor0/u_pid/err[30]</Signal>
+                <Signal>move1/motor0/u_pid/err[29]</Signal>
+                <Signal>move1/motor0/u_pid/err[28]</Signal>
+                <Signal>move1/motor0/u_pid/err[27]</Signal>
+                <Signal>move1/motor0/u_pid/err[26]</Signal>
+                <Signal>move1/motor0/u_pid/err[25]</Signal>
+                <Signal>move1/motor0/u_pid/err[24]</Signal>
+                <Signal>move1/motor0/u_pid/err[23]</Signal>
+                <Signal>move1/motor0/u_pid/err[22]</Signal>
+                <Signal>move1/motor0/u_pid/err[21]</Signal>
+                <Signal>move1/motor0/u_pid/err[20]</Signal>
+                <Signal>move1/motor0/u_pid/err[19]</Signal>
+                <Signal>move1/motor0/u_pid/err[18]</Signal>
+                <Signal>move1/motor0/u_pid/err[17]</Signal>
+                <Signal>move1/motor0/u_pid/err[16]</Signal>
+                <Signal>move1/motor0/u_pid/err[15]</Signal>
+                <Signal>move1/motor0/u_pid/err[14]</Signal>
+                <Signal>move1/motor0/u_pid/err[13]</Signal>
+                <Signal>move1/motor0/u_pid/err[12]</Signal>
+                <Signal>move1/motor0/u_pid/err[11]</Signal>
+                <Signal>move1/motor0/u_pid/err[10]</Signal>
+                <Signal>move1/motor0/u_pid/err[9]</Signal>
+                <Signal>move1/motor0/u_pid/err[8]</Signal>
+                <Signal>move1/motor0/u_pid/err[7]</Signal>
+                <Signal>move1/motor0/u_pid/err[6]</Signal>
+                <Signal>move1/motor0/u_pid/err[5]</Signal>
+                <Signal>move1/motor0/u_pid/err[4]</Signal>
+                <Signal>move1/motor0/u_pid/err[3]</Signal>
+                <Signal>move1/motor0/u_pid/err[2]</Signal>
+                <Signal>move1/motor0/u_pid/err[1]</Signal>
+                <Signal>move1/motor0/u_pid/err[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="move1/motor0/u_pid/integral_next[63:0]">
+                <Signal>move1/motor0/u_pid/integral_next[63]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[62]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[61]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[60]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[59]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[58]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[57]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[56]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[55]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[54]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[53]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[52]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[51]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[50]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[49]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[48]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[47]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[46]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[45]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[44]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[43]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[42]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[41]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[40]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[39]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[38]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[37]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[36]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[35]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[34]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[33]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[32]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[31]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[30]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[29]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[28]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[27]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[26]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[25]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[24]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[23]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[22]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[21]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[20]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[19]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[18]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[17]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[16]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[15]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[14]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[13]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[12]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[11]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[10]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[9]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[8]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[7]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[6]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[5]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[4]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[3]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[2]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[1]</Signal>
+                <Signal>move1/motor0/u_pid/integral_next[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="move1/motor0/u_pid/feedback[31:0]">
+                <Signal>move1/motor0/u_pid/feedback[31]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[30]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[29]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[28]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[27]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[26]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[25]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[24]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[23]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[22]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[21]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[20]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[19]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[18]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[17]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[16]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[15]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[14]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[13]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[12]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[11]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[10]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[9]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[8]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[7]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[6]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[5]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[4]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[3]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[2]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[1]</Signal>
+                <Signal>move1/motor0/u_pid/feedback[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="move1/v[0][31:0]">
+                <Signal>move1/v[0][31]</Signal>
+                <Signal>move1/v[0][30]</Signal>
+                <Signal>move1/v[0][29]</Signal>
+                <Signal>move1/v[0][28]</Signal>
+                <Signal>move1/v[0][27]</Signal>
+                <Signal>move1/v[0][26]</Signal>
+                <Signal>move1/v[0][25]</Signal>
+                <Signal>move1/v[0][24]</Signal>
+                <Signal>move1/v[0][23]</Signal>
+                <Signal>move1/v[0][22]</Signal>
+                <Signal>move1/v[0][21]</Signal>
+                <Signal>move1/v[0][20]</Signal>
+                <Signal>move1/v[0][19]</Signal>
+                <Signal>move1/v[0][18]</Signal>
+                <Signal>move1/v[0][17]</Signal>
+                <Signal>move1/v[0][16]</Signal>
+                <Signal>move1/v[0][15]</Signal>
+                <Signal>move1/v[0][14]</Signal>
+                <Signal>move1/v[0][13]</Signal>
+                <Signal>move1/v[0][12]</Signal>
+                <Signal>move1/v[0][11]</Signal>
+                <Signal>move1/v[0][10]</Signal>
+                <Signal>move1/v[0][9]</Signal>
+                <Signal>move1/v[0][8]</Signal>
+                <Signal>move1/v[0][7]</Signal>
+                <Signal>move1/v[0][6]</Signal>
+                <Signal>move1/v[0][5]</Signal>
+                <Signal>move1/v[0][4]</Signal>
+                <Signal>move1/v[0][3]</Signal>
+                <Signal>move1/v[0][2]</Signal>
+                <Signal>move1/v[0][1]</Signal>
+                <Signal>move1/v[0][0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="move1/motor0/speed_pct[31:0]">
+                <Signal>move1/motor0/speed_pct[31]</Signal>
+                <Signal>move1/motor0/speed_pct[30]</Signal>
+                <Signal>move1/motor0/speed_pct[29]</Signal>
+                <Signal>move1/motor0/speed_pct[28]</Signal>
+                <Signal>move1/motor0/speed_pct[27]</Signal>
+                <Signal>move1/motor0/speed_pct[26]</Signal>
+                <Signal>move1/motor0/speed_pct[25]</Signal>
+                <Signal>move1/motor0/speed_pct[24]</Signal>
+                <Signal>move1/motor0/speed_pct[23]</Signal>
+                <Signal>move1/motor0/speed_pct[22]</Signal>
+                <Signal>move1/motor0/speed_pct[21]</Signal>
+                <Signal>move1/motor0/speed_pct[20]</Signal>
+                <Signal>move1/motor0/speed_pct[19]</Signal>
+                <Signal>move1/motor0/speed_pct[18]</Signal>
+                <Signal>move1/motor0/speed_pct[17]</Signal>
+                <Signal>move1/motor0/speed_pct[16]</Signal>
+                <Signal>move1/motor0/speed_pct[15]</Signal>
+                <Signal>move1/motor0/speed_pct[14]</Signal>
+                <Signal>move1/motor0/speed_pct[13]</Signal>
+                <Signal>move1/motor0/speed_pct[12]</Signal>
+                <Signal>move1/motor0/speed_pct[11]</Signal>
+                <Signal>move1/motor0/speed_pct[10]</Signal>
+                <Signal>move1/motor0/speed_pct[9]</Signal>
+                <Signal>move1/motor0/speed_pct[8]</Signal>
+                <Signal>move1/motor0/speed_pct[7]</Signal>
+                <Signal>move1/motor0/speed_pct[6]</Signal>
+                <Signal>move1/motor0/speed_pct[5]</Signal>
+                <Signal>move1/motor0/speed_pct[4]</Signal>
+                <Signal>move1/motor0/speed_pct[3]</Signal>
+                <Signal>move1/motor0/speed_pct[2]</Signal>
+                <Signal>move1/motor0/speed_pct[1]</Signal>
+                <Signal>move1/motor0/speed_pct[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="move1/motor0/pid_out_reg[31:0]">
+                <Signal>move1/motor0/pid_out_reg[31]</Signal>
+                <Signal>move1/motor0/pid_out_reg[30]</Signal>
+                <Signal>move1/motor0/pid_out_reg[29]</Signal>
+                <Signal>move1/motor0/pid_out_reg[28]</Signal>
+                <Signal>move1/motor0/pid_out_reg[27]</Signal>
+                <Signal>move1/motor0/pid_out_reg[26]</Signal>
+                <Signal>move1/motor0/pid_out_reg[25]</Signal>
+                <Signal>move1/motor0/pid_out_reg[24]</Signal>
+                <Signal>move1/motor0/pid_out_reg[23]</Signal>
+                <Signal>move1/motor0/pid_out_reg[22]</Signal>
+                <Signal>move1/motor0/pid_out_reg[21]</Signal>
+                <Signal>move1/motor0/pid_out_reg[20]</Signal>
+                <Signal>move1/motor0/pid_out_reg[19]</Signal>
+                <Signal>move1/motor0/pid_out_reg[18]</Signal>
+                <Signal>move1/motor0/pid_out_reg[17]</Signal>
+                <Signal>move1/motor0/pid_out_reg[16]</Signal>
+                <Signal>move1/motor0/pid_out_reg[15]</Signal>
+                <Signal>move1/motor0/pid_out_reg[14]</Signal>
+                <Signal>move1/motor0/pid_out_reg[13]</Signal>
+                <Signal>move1/motor0/pid_out_reg[12]</Signal>
+                <Signal>move1/motor0/pid_out_reg[11]</Signal>
+                <Signal>move1/motor0/pid_out_reg[10]</Signal>
+                <Signal>move1/motor0/pid_out_reg[9]</Signal>
+                <Signal>move1/motor0/pid_out_reg[8]</Signal>
+                <Signal>move1/motor0/pid_out_reg[7]</Signal>
+                <Signal>move1/motor0/pid_out_reg[6]</Signal>
+                <Signal>move1/motor0/pid_out_reg[5]</Signal>
+                <Signal>move1/motor0/pid_out_reg[4]</Signal>
+                <Signal>move1/motor0/pid_out_reg[3]</Signal>
+                <Signal>move1/motor0/pid_out_reg[2]</Signal>
+                <Signal>move1/motor0/pid_out_reg[1]</Signal>
+                <Signal>move1/motor0/pid_out_reg[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="move1/motor0/pos[31:0]">
+                <Signal>move1/motor0/pos[31]</Signal>
+                <Signal>move1/motor0/pos[30]</Signal>
+                <Signal>move1/motor0/pos[29]</Signal>
+                <Signal>move1/motor0/pos[28]</Signal>
+                <Signal>move1/motor0/pos[27]</Signal>
+                <Signal>move1/motor0/pos[26]</Signal>
+                <Signal>move1/motor0/pos[25]</Signal>
+                <Signal>move1/motor0/pos[24]</Signal>
+                <Signal>move1/motor0/pos[23]</Signal>
+                <Signal>move1/motor0/pos[22]</Signal>
+                <Signal>move1/motor0/pos[21]</Signal>
+                <Signal>move1/motor0/pos[20]</Signal>
+                <Signal>move1/motor0/pos[19]</Signal>
+                <Signal>move1/motor0/pos[18]</Signal>
+                <Signal>move1/motor0/pos[17]</Signal>
+                <Signal>move1/motor0/pos[16]</Signal>
+                <Signal>move1/motor0/pos[15]</Signal>
+                <Signal>move1/motor0/pos[14]</Signal>
+                <Signal>move1/motor0/pos[13]</Signal>
+                <Signal>move1/motor0/pos[12]</Signal>
+                <Signal>move1/motor0/pos[11]</Signal>
+                <Signal>move1/motor0/pos[10]</Signal>
+                <Signal>move1/motor0/pos[9]</Signal>
+                <Signal>move1/motor0/pos[8]</Signal>
+                <Signal>move1/motor0/pos[7]</Signal>
+                <Signal>move1/motor0/pos[6]</Signal>
+                <Signal>move1/motor0/pos[5]</Signal>
+                <Signal>move1/motor0/pos[4]</Signal>
+                <Signal>move1/motor0/pos[3]</Signal>
+                <Signal>move1/motor0/pos[2]</Signal>
+                <Signal>move1/motor0/pos[1]</Signal>
+                <Signal>move1/motor0/pos[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">move1/motor0/A</Signal>
+            <Signal capture_enable="true">move1/motor0/B</Signal>
+        </SignalList>
+        <Triggers>
+            <Trigger index="0">
+                <SignalList>
+                    <Signal>move1/motor0/tick</Signal>
+                </SignalList>
+            </Trigger>
+            <Trigger index="1"/>
+            <Trigger index="2"/>
+            <Trigger index="3"/>
+            <Trigger index="4"/>
+            <Trigger index="5"/>
+            <Trigger index="6"/>
+            <Trigger index="7"/>
+            <Trigger index="8"/>
+            <Trigger index="9"/>
+            <Trigger index="10"/>
+            <Trigger index="11"/>
+            <Trigger index="12"/>
+            <Trigger index="13"/>
+            <Trigger index="14"/>
+            <Trigger index="15"/>
+        </Triggers>
+        <MatchUnits>
+            <MatchUnit index="0" enabled="1" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="0" value1="0" trigger="0"/>
+            <MatchUnit index="1" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="2" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="4" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="5" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="6" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="7" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="8" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="9" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="10" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="11" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="12" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="13" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="14" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="15" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+        </MatchUnits>
+        <Expressions type="Static">
+            <Expression>M0</Expression>
+        </Expressions>
+    </AoCore>
+    <GAO_ID>1100001111010001</GAO_ID>
+</GAO_CONFIG>

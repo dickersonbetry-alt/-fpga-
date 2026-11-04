@@ -1,0 +1,735 @@
+﻿ACG720机器人外设引脚配置与接线说明
+适用于138K版本  OV5640  配套TFT  亚博九轴IMU  ADS8681  四路TB6612
+本文档给出整车外设的最终推荐接线方案。摄像头和TFT使用ACG720专用接口，ADS8681、IMU、四路电机控制及编码器统一分配到P7 GPIO0接口。所有GPIO信号按3.3V LVCMOS电平设计。
+外设
+接口范围
+用途
+OV5640摄像头
+P4专用摄像头接口
+直接插接
+配套TFT
+40针FPC显示接口
+直接插接
+ADS8681
+P7-1至P7-6
+SPI
+亚博九轴IMU
+P7-7至P7-8
+UART
+四路TB6612
+P7-9至P7-33
+PWM 方向 编码器
+激光RS485备用
+P7-34至P7-36
+必须经过RS485收发器
+备用GPIO
+P7-37至P7-40
+未分配
+
+重要结论：P7-11、P7-12、P7-29和P7-30是固定电源脚，不属于FPGA可编程IO，不需要在Verilog或CST文件中定义。其他GPIO脚的功能必须通过顶层端口、CST约束和功能逻辑共同实现。
+
+1 P7 GPIO0完整分配
+P7为双排40针接口。下表中的P7编号是开发板物理针脚编号，FPGA管脚是需要写入高云CST约束文件的封装管脚。GPIO0的VCCIO必须保持在3.3V档位。
+P7
+FPGA管脚
+顶层信号
+连接对象
+方向
+1
+A13
+ads_cs_n
+ADS8681 CS
+输出
+2
+A14
+ads_sclk
+ADS8681 SCLK
+输出
+3
+A15
+ads_sdi
+ADS8681 SDI
+输出
+4
+A16
+ads_sdo0
+ADS8681 SDO0
+输入
+5
+A18
+ads_rst_n
+ADS8681 RST
+输出
+6
+A19
+ads_rvs
+ADS8681 RVS
+输入
+7
+F13
+imu_rx
+IMU TX
+输入
+8
+F14
+imu_tx
+IMU RX
+输出
+9
+E13
+motor_stby
+TB6612 STBY
+输出
+10
+E14
+motor_a_pwm
+TB6612 PWMA
+输出
+11
+固定5V
+VCC5V0
+ADS8681和IMU供电
+电源
+12
+固定地
+GND
+ADS8681和IMU公共地
+电源地
+13
+C13
+motor_a_in1
+TB6612 AIN1
+输出
+14
+B13
+motor_a_in2
+TB6612 AIN2
+输出
+15
+D14
+motor_b_pwm
+TB6612 PWMB
+输出
+16
+D15
+motor_b_in1
+TB6612 BIN1
+输出
+17
+C14
+motor_b_in2
+TB6612 BIN2
+输出
+18
+C15
+motor_c_pwm
+TB6612 PWMC
+输出
+19
+B15
+motor_c_in1
+TB6612 CIN1
+输出
+20
+B16
+motor_c_in2
+TB6612 CIN2
+输出
+21
+D17
+motor_d_pwm
+TB6612 PWMD
+输出
+22
+C17
+motor_d_in1
+TB6612 DIN1
+输出
+23
+E16
+motor_d_in2
+TB6612 DIN2
+输出
+24
+D16
+encoder_a_a
+TB6612 E1A
+输入
+25
+B17
+encoder_a_b
+TB6612 E1B
+输入
+26
+B18
+encoder_b_a
+TB6612 E2A
+输入
+27
+C18
+encoder_b_b
+TB6612 E2B
+输入
+28
+C19
+encoder_c_a
+TB6612 E3A
+输入
+29
+固定3.3V
+VCC3V3
+保留 不与驱动板3V3并联
+电源
+30
+固定地
+GND
+TB6612控制信号地
+电源地
+31
+F16
+encoder_c_b
+TB6612 E3B
+输入
+32
+E17
+encoder_d_a
+TB6612 E4A
+输入
+33
+D20
+encoder_d_b
+TB6612 E4B
+输入
+34
+C20
+laser_485_rx
+可选RS485模块 RO
+输入
+35
+E19
+laser_485_tx
+可选RS485模块 DI
+输出
+36
+D19
+laser_485_de
+可选RS485模块 DE和RE
+输出
+37
+F18
+gpio_spare0
+备用
+I O
+38
+E18
+gpio_spare1
+备用
+I O
+39
+F19
+gpio_spare2
+备用
+I O
+40
+F20
+gpio_spare3
+备用
+I O
+
+P7电源脚说明
+针脚
+固定功能
+允许连接
+禁止事项
+P7-11
+5V输出
+ADS8681和IMU的5V输入
+不得接12V 不写CST
+P7-12
+GND
+ADS8681和IMU地
+不作为GPIO
+P7-29
+3.3V输出
+必要时作为低功耗3.3V电源
+不与TB6612板载3V3并联
+P7-30
+GND
+TB6612控制信号地
+不作为GPIO
+
+
+2 激光传感器和ADS8681
+2.1 模拟与电源连接
+来源
+目标
+说明
+激光传感器AO+
+ADS8681 VIN
+0至10V模拟信号
+激光传感器AO-
+ADS8681模拟输入GND
+模拟信号参考地
+激光传感器VCC
+整车12V正极
+不得接P7-11
+激光传感器电源GND
+整车公共地
+与FPGA和ADC共地
+ADS8681 +5V
+P7-11
+模块供电
+ADS8681 GND
+P7-12
+数字地和模拟参考地
+
+2.2 SPI连接
+ADS8681
+P7
+FPGA管脚
+顶层端口
+方向
+CS
+1
+A13
+ads_cs_n
+输出
+SCLK
+2
+A14
+ads_sclk
+输出
+SDI
+3
+A15
+ads_sdi
+输出
+SDO0
+4
+A16
+ads_sdo0
+输入
+RST
+5
+A18
+ads_rst_n
+输出
+RVS
+6
+A19
+ads_rvs
+输入
+SDO1
+-
+-
+不连接
+-
+NC
+-
+-
+不连接
+-
+
+ADS8681设置为0至10.24V单极性量程，量程代码为4'b1001，也就是0x09。
+使用模块内部4.096V基准，外部VREF端口保持不接。
+模块背面RST和RVS丝印标反，接线必须看元件面的顶层丝印。
+模拟线采用双绞线并远离电机和PWM线。
+RS485 A和B在模拟量方案中保持绝缘，不得直接接FPGA。
+2.3 电压换算
+Vin = adc_code * 10.24 / 65535ideal_distance = min_distance + Vin / 10.0 * (max_distance - min_distance)
+实际距离应使用两个或多个已知距离进行标定，不能只依赖理论0V和10V端点。
+3 亚博九轴IMU
+IMU引脚
+ACG720
+顶层端口
+说明
+5V
+P7-11
+-
+与ADS8681并联取电
+GND
+P7-12
+-
+公共地
+TX
+P7-7 F13
+imu_rx
+IMU发送 FPGA接收
+RX
+P7-8 F14
+imu_tx
+FPGA发送 IMU接收
+SDA SCL
+不接
+-
+当前使用UART
+3V3
+不接
+-
+不与5V同时供电
+
+第一次连接前，单独给IMU供电并测量TX空闲高电平。若约为3.3V可直接连接F13；若接近5V，必须增加5V到3.3V电平转换。不要使用板载J21和M15串口管脚连接IMU，因为它们已经与板载USB转串口电路相连。
+
+4 四路TB6612电机驱动与编码器
+4.1 电机位置约定
+驱动通道
+车辆位置
+编码器信号
+Motor A
+左前轮
+E1A E1B
+Motor B
+左后轮
+E2A E2B
+Motor C
+右前轮
+E3A E3B
+Motor D
+右后轮
+E4A E4B
+
+4.2 驱动控制连接
+TB6612
+P7
+FPGA管脚
+顶层端口
+STBY
+P7-9
+E13
+motor_stby
+PWMA
+P7-10
+E14
+motor_a_pwm
+AIN1
+P7-13
+C13
+motor_a_in1
+AIN2
+P7-14
+B13
+motor_a_in2
+PWMB
+P7-15
+D14
+motor_b_pwm
+BIN1
+P7-16
+D15
+motor_b_in1
+BIN2
+P7-17
+C14
+motor_b_in2
+PWMC
+P7-18
+C15
+motor_c_pwm
+CIN1
+P7-19
+B15
+motor_c_in1
+CIN2
+P7-20
+B16
+motor_c_in2
+PWMD
+P7-21
+D17
+motor_d_pwm
+DIN1
+P7-22
+C17
+motor_d_in1
+DIN2
+P7-23
+E16
+motor_d_in2
+
+4.3 编码器连接
+编码器
+P7
+FPGA管脚
+顶层端口
+说明
+E1A
+P7-24
+D16
+encoder_a_a
+左前轮A相
+E1B
+P7-25
+B17
+encoder_a_b
+左前轮B相
+E2A
+P7-26
+B18
+encoder_b_a
+左后轮A相
+E2B
+P7-27
+C18
+encoder_b_b
+左后轮B相
+E3A
+P7-28
+C19
+encoder_c_a
+右前轮A相
+E3B
+P7-31
+F16
+encoder_c_b
+右前轮B相
+E4A
+P7-32
+E17
+encoder_d_a
+右后轮A相
+E4B
+P7-33
+D20
+encoder_d_b
+右后轮B相
+
+4.4 驱动板电源和未使用端子
+TB6612端子
+连接
+要求
+Vin+
+整车12V正极
+不要从ACG720取电
+电源负极
+整车12V负极
+与ACG720公共地
+J6 GND
+P7-30
+控制信号参考地
+3V3输出
+不接
+禁止与P7-29并联
+5V输出
+不接
+禁止与ACG720 5V并联
+ADC
+不接
+当前方案不使用
+
+编码器蓝线接驱动板3.3V，黑线接GND，绿线接A相，黄线接B相。
+接入FPGA前测量E1A至E4B高电平，必须不超过3.6V。
+系统复位期间STBY保持0，四路PWM和方向信号保持0。
+电机正反方向与机械安装有关，可交换某一路电机正负线或在软件中反相。
+
+5 OV5640摄像头
+OV5640直接插接ACG720的P4摄像头接口，不占用P7。插接前确认模块方向和1脚标记。P4已经提供3.3V供电，并带有SCCB时钟线和数据线的4.7k欧姆上拉电阻。
+顶层端口
+FPGA管脚
+方向
+说明
+cam_rst_n
+N20
+输出
+摄像头低有效复位
+cam_d[0]
+J2
+输入
+DVP数据0
+cam_d[1]
+J1
+输入
+DVP数据1
+cam_d[2]
+G1
+输入
+DVP数据2
+cam_d[3]
+H2
+输入
+DVP数据3
+cam_d[4]
+F1
+输入
+DVP数据4
+cam_d[5]
+G2
+输入
+DVP数据5
+cam_d[6]
+D1
+输入
+DVP数据6
+cam_d[7]
+E1
+输入
+DVP数据7
+cam_xclk
+M17
+输出
+摄像头参考时钟
+cam_pclk
+B1
+输入
+像素时钟
+cam_href
+A1
+输入
+行有效信号
+cam_vsync
+B2
+输入
+帧同步信号
+cam_sda
+L18
+双向
+SCCB数据
+cam_scl
+M20
+输出
+SCCB时钟
+
+推荐先使用800乘480 RGB565配置，与配套TFT分辨率一致。摄像头数据、PCLK、HREF和VSYNC都是摄像头输出、FPGA输入；XCLK、RESET和SCL由FPGA输出。
+6 配套TFT显示屏
+配套TFT使用开发板40针FPC接口，不占用P7。所有显示信号均由FPGA输出。
+信号
+管脚
+信号
+管脚
+tft_clk
+AB20
+tft_de
+AB22
+tft_hs
+V19
+tft_vs
+Y19
+tft_pwm
+AB21
+tft_rgb[15]
+U17
+tft_rgb[14]
+U18
+tft_rgb[13]
+P14
+tft_rgb[12]
+R14
+tft_rgb[11]
+R18
+tft_rgb[10]
+T18
+tft_rgb[9]
+N17
+tft_rgb[8]
+P17
+tft_rgb[7]
+P15
+tft_rgb[6]
+R16
+tft_rgb[5]
+N13
+tft_rgb[4]
+N14
+tft_rgb[3]
+P16
+tft_rgb[2]
+R17
+tft_rgb[1]
+N15
+tft_rgb[0]
+L6
+
+
+
+
+7 整车供电和接地
+电源节点
+连接对象
+说明
+12V总电源正极
+ACG720 12V输入
+开发板主电源
+12V总电源正极
+TB6612 Vin+
+四路电机功率电源
+12V总电源正极
+激光传感器VCC
+传感器电源
+ACG720 P7-11 5V
+ADS8681 +5V
+ADC模块电源
+ACG720 P7-11 5V
+IMU 5V
+IMU电源
+ACG720 P4 3.3V
+OV5640
+由摄像头接口提供
+ACG720 FPC接口
+TFT
+由显示接口提供
+12V总电源负极
+所有模块GND
+星形公共地
+
+TB6612的电机大电流回路应直接回到12V电源负极，不要经过ACG720的P7地线。ACG720、TB6612、激光传感器、ADS8681和IMU在电源负极处形成星形共地。
+TB6612电源入口附近并联大容量电解电容，建议470至1000微法，并配合0.1微法陶瓷电容。
+ADS8681和IMU的5V入口附近各放置0.1微法去耦电容，ADS8681可再并联47至100微法电解电容。
+编码器线、IMU线和模拟量线远离电机电源线。
+激光AO+和AO-使用一对双绞线，屏蔽层只在ADC侧接地。
+8 FPGA顶层端口定义
+module robot_top (    input  wire        sys_clk,    input  wire        sys_rst_n,    output wire        ads_cs_n,    output wire        ads_sclk,    output wire        ads_sdi,    input  wire        ads_sdo0,    output wire        ads_rst_n,    input  wire        ads_rvs,    input  wire        imu_rx,    output wire        imu_tx,    output wire        motor_stby,    output wire        motor_a_pwm,    output wire        motor_a_in1,    output wire        motor_a_in2,    output wire        motor_b_pwm,    output wire        motor_b_in1,    output wire        motor_b_in2,    output wire        motor_c_pwm,    output wire        motor_c_in1,    output wire        motor_c_in2,    output wire        motor_d_pwm,    output wire        motor_d_in1,    output wire        motor_d_in2,    input  wire        encoder_a_a,    input  wire        encoder_a_b,    input  wire        encoder_b_a,    input  wire        encoder_b_b,    input  wire        encoder_c_a,    input  wire        encoder_c_b,    input  wire        encoder_d_a,    input  wire        encoder_d_b,    output wire        cam_rst_n,    input  wire [7:0]  cam_d,    output wire        cam_xclk,    input  wire        cam_pclk,    input  wire        cam_href,    input  wire        cam_vsync,    inout  wire        cam_sda,    output wire        cam_scl,    output wire        tft_clk,    output wire        tft_de,    output wire        tft_hs,    output wire        tft_vs,    output wire        tft_pwm,    output wire [15:0] tft_rgb);    // ADS8681 SPI 驱动    // IMU UART 接收和帧解析    // 四路PWM和四路正交编码器    // OV5640 SCCB初始化及DVP采集    // TFT时序和RGB输出endmodule
+
+9 高云CST管脚约束
+# 系统时钟和复位按键IO_LOC "sys_clk" Y18;IO_LOC "sys_rst_n" B21;IO_PORT "sys_clk" IO_TYPE=LVCMOS33;IO_PORT "sys_rst_n" IO_TYPE=LVCMOS33 PULL_MODE=UP;# ADS8681IO_LOC "ads_cs_n" A13;IO_LOC "ads_sclk" A14;IO_LOC "ads_sdi" A15;IO_LOC "ads_sdo0" A16;IO_LOC "ads_rst_n" A18;IO_LOC "ads_rvs" A19;# IMU UARTIO_LOC "imu_rx" F13;IO_LOC "imu_tx" F14;# TB6612控制IO_LOC "motor_stby" E13;IO_LOC "motor_a_pwm" E14;IO_LOC "motor_a_in1" C13;IO_LOC "motor_a_in2" B13;IO_LOC "motor_b_pwm" D14;IO_LOC "motor_b_in1" D15;IO_LOC "motor_b_in2" C14;IO_LOC "motor_c_pwm" C15;IO_LOC "motor_c_in1" B15;IO_LOC "motor_c_in2" B16;IO_LOC "motor_d_pwm" D17;IO_LOC "motor_d_in1" C17;IO_LOC "motor_d_in2" E16;# 编码器IO_LOC "encoder_a_a" D16;IO_LOC "encoder_a_b" B17;IO_LOC "encoder_b_a" B18;IO_LOC "encoder_b_b" C18;IO_LOC "encoder_c_a" C19;IO_LOC "encoder_c_b" F16;IO_LOC "encoder_d_a" E17;IO_LOC "encoder_d_b" D20;# OV5640摄像头IO_LOC "cam_rst_n" N20;IO_LOC "cam_d[0]" J2;IO_LOC "cam_d[1]" J1;IO_LOC "cam_d[2]" G1;IO_LOC "cam_d[3]" H2;IO_LOC "cam_d[4]" F1;IO_LOC "cam_d[5]" G2;IO_LOC "cam_d[6]" D1;IO_LOC "cam_d[7]" E1;IO_LOC "cam_xclk" M17;IO_LOC "cam_pclk" B1;IO_LOC "cam_href" A1;IO_LOC "cam_vsync" B2;IO_LOC "cam_sda" L18;IO_LOC "cam_scl" M20;# TFTIO_LOC "tft_clk" AB20;IO_LOC "tft_de" AB22;IO_LOC "tft_hs" V19;IO_LOC "tft_vs" Y19;IO_LOC "tft_pwm" AB21;IO_LOC "tft_rgb[15]" U17;IO_LOC "tft_rgb[14]" U18;IO_LOC "tft_rgb[13]" P14;IO_LOC "tft_rgb[12]" R14;IO_LOC "tft_rgb[11]" R18;IO_LOC "tft_rgb[10]" T18;IO_LOC "tft_rgb[9]" N17;IO_LOC "tft_rgb[8]" P17;IO_LOC "tft_rgb[7]" P15;IO_LOC "tft_rgb[6]" R16;IO_LOC "tft_rgb[5]" N13;IO_LOC "tft_rgb[4]" N14;IO_LOC "tft_rgb[3]" P16;IO_LOC "tft_rgb[2]" R17;IO_LOC "tft_rgb[1]" N15;IO_LOC "tft_rgb[0]" L6;# 所有上述普通单端IO使用3.3V LVCMOSIO_PORT "ads_cs_n" IO_TYPE=LVCMOS33;IO_PORT "ads_sclk" IO_TYPE=LVCMOS33;IO_PORT "ads_sdi" IO_TYPE=LVCMOS33;IO_PORT "ads_sdo0" IO_TYPE=LVCMOS33;IO_PORT "ads_rst_n" IO_TYPE=LVCMOS33;IO_PORT "ads_rvs" IO_TYPE=LVCMOS33;IO_PORT "imu_rx" IO_TYPE=LVCMOS33;IO_PORT "imu_tx" IO_TYPE=LVCMOS33;IO_PORT "motor_stby" IO_TYPE=LVCMOS33;IO_PORT "motor_a_pwm" IO_TYPE=LVCMOS33;IO_PORT "motor_a_in1" IO_TYPE=LVCMOS33;IO_PORT "motor_a_in2" IO_TYPE=LVCMOS33;IO_PORT "motor_b_pwm" IO_TYPE=LVCMOS33;IO_PORT "motor_b_in1" IO_TYPE=LVCMOS33;IO_PORT "motor_b_in2" IO_TYPE=LVCMOS33;IO_PORT "motor_c_pwm" IO_TYPE=LVCMOS33;IO_PORT "motor_c_in1" IO_TYPE=LVCMOS33;IO_PORT "motor_c_in2" IO_TYPE=LVCMOS33;IO_PORT "motor_d_pwm" IO_TYPE=LVCMOS33;IO_PORT "motor_d_in1" IO_TYPE=LVCMOS33;IO_PORT "motor_d_in2" IO_TYPE=LVCMOS33;IO_PORT "encoder_a_a" IO_TYPE=LVCMOS33;IO_PORT "encoder_a_b" IO_TYPE=LVCMOS33;IO_PORT "encoder_b_a" IO_TYPE=LVCMOS33;IO_PORT "encoder_b_b" IO_TYPE=LVCMOS33;IO_PORT "encoder_c_a" IO_TYPE=LVCMOS33;IO_PORT "encoder_c_b" IO_TYPE=LVCMOS33;IO_PORT "encoder_d_a" IO_TYPE=LVCMOS33;IO_PORT "encoder_d_b" IO_TYPE=LVCMOS33;IO_PORT "cam_rst_n" IO_TYPE=LVCMOS33;IO_PORT "cam_d[0]" IO_TYPE=LVCMOS33;IO_PORT "cam_d[1]" IO_TYPE=LVCMOS33;IO_PORT "cam_d[2]" IO_TYPE=LVCMOS33;IO_PORT "cam_d[3]" IO_TYPE=LVCMOS33;IO_PORT "cam_d[4]" IO_TYPE=LVCMOS33;IO_PORT "cam_d[5]" IO_TYPE=LVCMOS33;IO_PORT "cam_d[6]" IO_TYPE=LVCMOS33;IO_PORT "cam_d[7]" IO_TYPE=LVCMOS33;IO_PORT "cam_xclk" IO_TYPE=LVCMOS33;IO_PORT "cam_pclk" IO_TYPE=LVCMOS33;IO_PORT "cam_href" IO_TYPE=LVCMOS33;IO_PORT "cam_vsync" IO_TYPE=LVCMOS33;IO_PORT "cam_sda" IO_TYPE=LVCMOS33 PULL_MODE=UP;IO_PORT "cam_scl" IO_TYPE=LVCMOS33 PULL_MODE=UP;IO_PORT "tft_clk" IO_TYPE=LVCMOS33;IO_PORT "tft_de" IO_TYPE=LVCMOS33;IO_PORT "tft_hs" IO_TYPE=LVCMOS33;IO_PORT "tft_vs" IO_TYPE=LVCMOS33;IO_PORT "tft_pwm" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[15]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[14]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[13]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[12]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[11]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[10]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[9]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[8]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[7]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[6]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[5]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[4]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[3]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[2]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[1]" IO_TYPE=LVCMOS33;IO_PORT "tft_rgb[0]" IO_TYPE=LVCMOS33;
+以上约束已逐项包含本方案使用的全部可编程信号。P7-11、P7-12、P7-29和P7-30是固定电源脚，不出现在CST文件中。若暂时不使用可选RS485或备用GPIO，也无需在顶层端口和CST中声明。
+10 上电检查顺序
+步骤
+项目
+检查内容
+1
+断电检查
+确认12V、5V、3.3V和GND没有接反，P7编号方向正确
+2
+仅给ACG720上电
+测量P7-11约为5V，P7-29约为3.3V
+3
+连接ADS8681
+确认模块5V和SPI高电平约3.3V，不接激光AO线
+4
+连接IMU
+先测量IMU TX空闲电平，再连接F13
+5
+连接TB6612控制线
+保持电机12V断开，验证STBY和PWM初始为0
+6
+连接编码器
+手动转动车轮，检查A B相电平不超过3.6V
+7
+接通电机12V
+逐个通道低占空比测试，确认电机编号和方向
+8
+连接激光模拟量
+先用万用表确认AO+在0至10V范围，再连接VIN
+9
+插接摄像头和TFT
+断电插拔，检查排线方向和锁扣
+10
+整车测试
+观察电机运行时ADC、IMU和编码器是否受到干扰
+
+11 资料依据
+资料
+用途
+ACG720-138和60K通用原理图
+P7 GPIO0、电源脚、摄像头接口、TFT接口
+高云ACG720-138和60K通用管脚分配表
+FPGA封装管脚和接口电平
+ADS8681用户手册1.0
+模块供电、SPI信号、输入量程和注意事项
+ACM5640-V5型500W高清摄像头模块用户手册
+OV5640接口、供电和DVP信号
+用户提供的TB6612四路驱动板接口图
+四路PWM、方向、编码器及电源端子
+用户提供的IMU和电机引脚图
+UART、电机六线及编码器信号定义
+
+版本日期：2026年10月15日。若后续更换IMU型号、激光传感器型号或电机驱动板版本，应重新核对电平和端子定义后再沿用本表。

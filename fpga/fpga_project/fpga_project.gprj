@@ -1,0 +1,71 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW5AT-138C" pn="GW5AT-LV138PG484AC1/I0">gw5at138c-007</Device>
+    <FileList>
+        <File path="src/fpga_top.v" type="file.verilog" enable="1"/>
+        <File path="src/move.v" type="file.verilog" enable="1"/>
+        <File path="src/motor.v" type="file.verilog" enable="1"/>
+        <File path="src/pid.v" type="file.verilog" enable="1"/>
+        <File path="src/pwm.v" type="file.verilog" enable="1"/>
+        <File path="src/quadrature.v" type="file.verilog" enable="1"/>
+
+        <File path="src/ads8681/ads8681_ctrl.v" type="file.verilog" enable="1"/>
+
+        <File path="src/touch/xpt2046.v" type="file.verilog" enable="1"/>
+<File path="src/imu/imu_uart_rx.v" type="file.verilog" enable="1"/>
+        <File path="src/imu/imu_parser.v" type="file.verilog" enable="1"/>
+        <File path="src/imu/float_to_deg.v" type="file.verilog" enable="1"/>
+        <File path="src/imu/osd_text.v" type="file.verilog" enable="1"/>
+        <File path="src/imu/osd_raw.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/eth_pll.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/eth_tx_ctrl.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/eth_tx_fifo.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/eth_udp_tx_gmii.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/ip_checksum.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/crc32_d8.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/gmii_to_rgmii.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/phy_reg_config.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/mdio_bit_shift.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/eth_udp_rx_gmii.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/rgmii_to_gmii.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/rx_pll.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/phy_dbg.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/eth_stat.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/uart_dbg.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/box_rx_parse.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/box_overlay.v" type="file.verilog" enable="1"/>
+      <File path="src/eth/box_sync.v" type="file.verilog" enable="1"/>
+
+        <File path="src/camera/btn_grid.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/cursor.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/ov5640_ddr3_tft.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/camera_init/camera_init.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/camera_init/i2c_control/i2c_bit_shift.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/camera_init/i2c_control/i2c_control.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/camera_init/ov5640_init_table_jpeg.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/camera_init/ov5640_init_table_rgb.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/camera_pll/camera_pll.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/DVP_Capture/DVP_Capture.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/ddr3_ctrl_2port/ddr3_ctrl_2port.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/ddr3_ctrl_2port/fifo_ddr3_adapter.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/ddr3_memory_interface/ddr3_memory_interface.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/ddr3_pll/ddr3_pll.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/ddr_pll/ddr_pll.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/gowin_clkdiv/gowin_clkdiv.v" type="file.verilog" enable="0"/>
+        <File path="src/camera/gowin_ddr/gowin_ddr.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/gowin_pll/gowin_pll.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="0"/>
+        <File path="src/camera/rd_data_fifo/rd_data_fifo.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/vga/disp_driver.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/vga/disp_parameter_cfg.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/vga/dvi_encoder.v" type="file.verilog" enable="1"/>
+        <File path="src/camera/wr_data_fifo/wr_data_fifo.v" type="file.verilog" enable="1"/>
+
+        <File path="src/fpga_project.cst" type="file.cst" enable="1"/>
+        <File path="src/fpga_project.sdc" type="file.sdc" enable="1"/>
+        <File path="src/fpga_project.rao" type="file.gao" enable="0"/>
+    </FileList>
+</Project>
